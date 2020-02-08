@@ -1,0 +1,1 @@
+<?include("connect.inc.php");include("auth.inc.php");$refreshme = true;$refreshtime = 420;$title = "Turnus Pop-Up";include('header.inc.php');include('turnus.inc.php');include('footer.inc.php');?>
