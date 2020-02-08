@@ -8,7 +8,7 @@ $title = "Chat durchsuchen";
 include("header.inc.php");
 ?>
 <table cellpadding="3" border="1">
-<tr><td><form>Suche: <input type="text" name="q" value="<?=$_REQUEST['q'] ?>">, Von: <select name="autor" size="1"><option value="0">--egal--</option><?
+<tr><td><form>Suche: <input type="text" name="q" value="<?=htmlspecialchars($_REQUEST['q']) ?>">, Von: <select name="autor" size="1"><option value="0">--egal--</option><?
 
 $sql = "SELECT UID,username FROM chat_user WHERE UID > 0 ORDER BY username ASC;";
 $result = mysql_query($sql);

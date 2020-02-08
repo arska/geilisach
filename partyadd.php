@@ -67,7 +67,7 @@ if ($_REQUEST['go']) {
 $title = "Event hinzuf&uuml;gen";
 include("header.inc.php");
 ?>
-<form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
+<form method="post" action="">
 <table border="1" cellpadding="3">
 <tr><td align="left"><a href="partylist.php">Eventliste</a></td></tr>
 <tr><td>
@@ -81,11 +81,11 @@ if (count($errors) > 0) {
 }
 ?>
 <table border="0" cellpadding="3">
-<tr><td>Anlass:</td><td><input type="text" name="anlass" value="<?=$_REQUEST['anlass'] ?>" size="30"></td></tr>
-<tr><td>Ort:</td><td><input type="text" name="ort" value="<?=$_REQUEST['ort'] ?>" size="30"></td></tr>
-<tr><td>Homepage:</td><td><input type="text" name="homepage" value="<?=$_REQUEST['homepage'] ?>" size="30"></td></tr>
-<tr><td>Datum:</td><td><input type="text" name="tag" value="<?=$_REQUEST['tag'] ?>" size="2">.<input type="text" name="monat" value="<?=$_REQUEST['monat'] ?>" size="2">.<input type="text" name="jahr" value="<? if ($_REQUEST['jahr']) echo $_REQUEST['jahr']; else echo strftime("%Y"); ?>" size="4">, <? if ($timewrong) { ?><font color="red"><? } ?>Zeit:<? if ($timewrong) { ?></font><? } ?> <input type="text" size="2" name="stunde" value="<?=$_REQUEST['stunde'] ?>">:<input type="text" size="2" name="minute" value="<? if ($_REQUEST['minute']) echo $_REQUEST['minute']; else echo "00"; ?>"></td></tr>
-<tr><td valign="top">Beschreibung:</td><td><textarea name="beschreibung" cols="50" rows="30" ><?=$_REQUEST['beschreibung'] ?></textarea></td></tr>
+<tr><td>Anlass:</td><td><input type="text" name="anlass" value="<?=htmlspecialchars($_REQUEST['anlass']) ?>" size="30"></td></tr>
+<tr><td>Ort:</td><td><input type="text" name="ort" value="<?=htmlspecialchars($_REQUEST['ort']) ?>" size="30"></td></tr>
+<tr><td>Homepage:</td><td><input type="text" name="homepage" value="<?=htmlspecialchars($_REQUEST['homepage']) ?>" size="30"></td></tr>
+<tr><td>Datum:</td><td><input type="text" name="tag" value="<?=htmlspecialchars($_REQUEST['tag']) ?>" size="2">.<input type="text" name="monat" value="<?=htmlspecialchars($_REQUEST['monat']) ?>" size="2">.<input type="text" name="jahr" value="<? if ($_REQUEST['jahr']) echo htmlspecialchars($_REQUEST['jahr']); else echo strftime("%Y"); ?>" size="4">, <? if ($timewrong) { ?><font color="red"><? } ?>Zeit:<? if ($timewrong) { ?></font><? } ?> <input type="text" size="2" name="stunde" value="<?=htmlspecialchars($_REQUEST['stunde']) ?>">:<input type="text" size="2" name="minute" value="<? if ($_REQUEST['minute']) echo htmlspecialchars($_REQUEST['minute']); else echo "00"; ?>"></td></tr>
+<tr><td valign="top">Beschreibung:</td><td><textarea name="beschreibung" cols="50" rows="30" ><?=htmlspecialchars($_REQUEST['beschreibung']) ?></textarea></td></tr>
 <tr><td></td><td align="right"><input type="submit" name="go" value="Abschicken"></td></tr>
 </table>
 </td></tr>

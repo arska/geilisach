@@ -68,7 +68,7 @@ if ($_REQUEST['go']) {
 $title = "Kolumne schreiben";
 include("header.inc.php");
 ?>
-<form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
+<form method="post" action="">
 <table border="1" cellpadding="3">
 <tr><td align="left"><a href="kolumnelist.php">Kolumnenliste</a></td></tr>
 <tr><td>
@@ -82,7 +82,7 @@ if (count($errors) > 0) {
 }
 ?>
 <table border="0" cellpadding="3">
-<tr><td>Anlass:</td><td><input type="text" name="anlass" value="<?=$_REQUEST['anlass'] ?>" size="30">
+<tr><td>Anlass:</td><td><input type="text" name="anlass" value="<?=htmlspecialchars($_REQUEST['anlass']) ?>" size="30">
 <? /* oder 
 <select name="aid" size="1"><option value="0">--w&auml;hle ein Event aus--</option><?
 
@@ -103,11 +103,11 @@ while ($row = mysql_fetch_row($result)) {
 } 
 
 ?>
-<tr><td>Andere: <input type="text" name="andere" value="<?=$_REQUEST['andere'] ?>" size="30"></td></tr>
+<tr><td>Andere: <input type="text" name="andere" value="<?=htmlspecialchars($_REQUEST['andere']) ?>" size="30"></td></tr>
 </table></td></tr>
-<tr><td>Titel:</td><td><input type="text" name="titel" value="<?=$_REQUEST['titel'] ?>" size="30"></td></tr>
-<tr><td>Datum:</td><td><input type="text" name="tag" value="<?=($_REQUEST['tag'] ? $_REQUEST['tag'] : strftime('%d')) ?>" size="2">.<input type="text" name="monat" value="<?=($_REQUEST['monat'] ? $_REQUEST['monat'] : strftime('%m')) ?>" size="2">.<input type="text" name="jahr" value="<?=($_REQUEST['jahr'] ? $_REQUEST['jahr'] : strftime('%Y')) ?>" size="4"></td></tr>
-<tr><td valign="top">Kolumne:</td><td><textarea name="kolumne" cols="50" rows="30" ><?=trim($_REQUEST['kolumne']) ?></textarea></td></tr>
+<tr><td>Titel:</td><td><input type="text" name="titel" value="<?=htmlspecialchars($_REQUEST['titel']) ?>" size="30"></td></tr>
+<tr><td>Datum:</td><td><input type="text" name="tag" value="<?=($_REQUEST['tag'] ? htmlspecialchars($_REQUEST['tag']) : strftime('%d')) ?>" size="2">.<input type="text" name="monat" value="<?=($_REQUEST['monat'] ? htmlspecialchars($_REQUEST['monat']) : strftime('%m')) ?>" size="2">.<input type="text" name="jahr" value="<?=($_REQUEST['jahr'] ? htmlspecialchars($_REQUEST['jahr']) : strftime('%Y')) ?>" size="4"></td></tr>
+<tr><td valign="top">Kolumne:</td><td><textarea name="kolumne" cols="50" rows="30" ><?=trim(htmlspecialchars($_REQUEST['kolumne'])) ?></textarea></td></tr>
 <tr><td></td><td align="right"><input type="submit" name="go" value="Abschicken"></td></tr>
 </table>
 </td></tr>

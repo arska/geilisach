@@ -130,7 +130,7 @@ while ($row = mysql_fetch_array($result)) {
 }
 ?></ul><br>
 Kommentar <font size="-2">(du bist eingeloggt als: <?=$_SESSION['username'] ?>)</font>: 
-<form method="post" action="<?=$_SERVER['PHP_SELF'] ?>?id=<?=$aid ?>">
+<form method="post" action="?id=<?=$aid ?>">
 	<input type="text" name="kommentar"><input type="submit" value="Go!">
 </form>
 

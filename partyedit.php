@@ -82,7 +82,7 @@ if ($_REQUEST['go']) {
 $title = "Event editieren";
 include("header.inc.php");
 ?>
-<form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
+<form method="post" action="">
 <table border="1" cellpadding="3">
 <tr><td align="left"><a href="partylist.php">Eventliste</a></td></tr>
 <tr><td>

@@ -1,5 +1,5 @@
 <?
-include("secrets.inc.php")
+include("secrets.inc.php");
 
 if ($link = mysql_pconnect($dbhost,$dbuser,$dbpass)) {
 	if (mysql_select_db($dbname, $link) == 0) {

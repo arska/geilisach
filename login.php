@@ -85,8 +85,8 @@ if ($prefsloaded) {
 	include("header.inc.php");
 ?>
 <center>
-<form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
-<input type="hidden" name="url" value="<?=$_REQUEST['url'] ?>">
+<form method="post" action="">
+<input type="hidden" name="url" value="<?=htmlspecialchars($_REQUEST['url']) ?>">
 <table border="1" cellpadding="4">
 <tr><td align="center" rowspan="2" width="50%">
 <img src="/yalampgallery/generated/6056.jpg" align="top">
@@ -103,7 +103,7 @@ Hallo <?=$_SESSION['username'] ?>, du bist schon authentifiziert ! Du kannst auc
 <? } ?>
 <table border="0">
 <tr><td>Username:</td><td><input type="text" name="username" value="<? if ($_SESSION['username']) echo $_SESSION['username']; else echo $_REQUEST['username'] ?>"></td></tr>
-<tr><td>Passwort:</td><td><input type="password" name="password" value="<?=$_REQUEST['password'] ?>"></td></tr>
+<tr><td>Passwort:</td><td><input type="password" name="password" value="<?=htmlspecialchars($_REQUEST['password']) ?>"></td></tr>
 <tr><td></td><td><input type="submit" name="gologin" value="Login"></td></tr>
 <tr><td></td><td><a href="useradd.php">Noch gar nicht registriert ?</a></td></tr>
 <tr><td></td><td><a href="userlostpw.php">Passwort vergessen ?</a></td></tr>
